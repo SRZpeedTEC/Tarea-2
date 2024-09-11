@@ -146,8 +146,70 @@ namespace Tarea_2
 
         public bool DeleteValue(int value)
         {
-            // Lógica para eliminar un valor específico
-            return true;
+            
+            if (Cabeza == null)
+            {
+                return false;
+            }
+
+            Nodo actual = Cabeza;
+
+            
+            while (actual != null && actual.data != value)
+            {
+                actual = actual.Siguiente;
+            }
+
+            
+            if (actual == null)
+            {
+                return false;
+            }
+
+           
+            if (Cabeza == Cola && actual == Cabeza)
+            {
+                Cabeza = null;
+                Cola = null;
+            }
+            
+            else if (actual == Cabeza)
+            {
+                Cabeza = Cabeza.Siguiente;
+                Cabeza.Anterior = null;
+            }
+            
+            else if (actual == Cola)
+            {
+                Cola = Cola.Anterior;
+                Cola.Siguiente = null;
+            }
+            
+            else
+            {
+                actual.Anterior.Siguiente = actual.Siguiente;
+                actual.Siguiente.Anterior = actual.Anterior;
+            }
+
+            
+            Tamano--;
+
+            if (Tamano % 2 == 0)
+            {
+                if (actual.data >= Mitad.data)
+                {
+                    Mitad = Mitad.Anterior;
+                }
+            }
+            else
+            {
+                if (actual.data < Mitad.data)
+                {
+                    Mitad = Mitad.Siguiente;
+                }
+            }
+
+            return true; 
         }
 
         public int GetMiddle()
@@ -167,10 +229,7 @@ namespace Tarea_2
 
         }
 
-        
-
-        
-
+              
         public void Print()
         {
             if (Tamano == 0)
@@ -180,7 +239,7 @@ namespace Tarea_2
             }
 
             Nodo temp = Cabeza;
-            for (int i = 0; i < Tamano; i++) // Cambiado a i < size
+            for (int i = 0; i < Tamano; i++) 
             {
                 Console.WriteLine(temp.data);
                 temp = temp.Siguiente;

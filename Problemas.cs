@@ -104,10 +104,10 @@ namespace Tarea_2
         }
 
         
-
+        // PROBLEMA 2
         public void Invertir(ListaDoble Lista)
         {
-            // Verifica si la lista está vacía o solo tiene un nodo
+            
 
             if (Lista == null)
             {
@@ -123,10 +123,10 @@ namespace Tarea_2
             Nodo actual = Lista.Cabeza;
             Nodo temp = null;
 
-            // Recorre la lista e intercambia los enlaces
+            
             while (actual != null)
             {
-                // Intercambia los enlaces Siguiente y Anterior
+                
                 temp = actual.Siguiente;
                 actual.Siguiente = actual.Anterior;
                 actual.Anterior = temp;
@@ -134,7 +134,7 @@ namespace Tarea_2
                 actual = temp;
             }
 
-            // Intercambia Cabeza y Cola
+            
             temp = Lista.Cabeza;
             Lista.Cabeza = Lista.Cola;
             Lista.Cola = temp;
