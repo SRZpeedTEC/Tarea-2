@@ -14,14 +14,50 @@ namespace Tarea_2
         /// </summary>
         [STAThread]
         static void Main(string[] args)
-        {         
-
-        }
-
-        public static string Prueba()
         {
-            return "Hola Mundo";
+            ListaDoble Lista1 = new ListaDoble();
+            ListaDoble Lista2 = new ListaDoble();
+            ListaDoble lista = new ListaDoble();
+            Problemas problemas = new Problemas();
+
+            Lista1.InsertInOrder(34);
+            Lista1.InsertInOrder(3);
+            Lista1.InsertInOrder(25);
+            Lista1.InsertInOrder(15);
+            Lista1.InsertInOrder(8);
+            
+            
+            Lista2.InsertInOrder(5);
+            Lista2.InsertInOrder(10);
+            Lista2.InsertInOrder(14);
+            Lista2.InsertInOrder(22);
+            Lista2.InsertInOrder(28);
+            Lista2.InsertInOrder(37);
+
+            
+            lista.AgregarPrimero(1);
+            lista.AgregarPrimero(0);
+            lista.AgregarPrimero(30);
+            lista.AgregarPrimero(50);
+            lista.AgregarPrimero(2);
+
+
+            problemas.Invertir(lista);
+            // problemas.MergeSorted(Lista2 , Lista1, ListaDoble.SortDirection.Asc);
+
+
+
+            
+            // Lista1.printMiddle();
+
+            
+
+
+
+
         }
+
+        
         
 
 
